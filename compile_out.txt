@@ -1,0 +1,651 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.finance:finance-api >-----------------------
+[INFO] Building finance-api 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finance-api ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ finance-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 47 source files with javac [debug parameters release 25] to target\classes
+[INFO] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/MoneyFlowServiceImpl.java: C:\Users\13129\WorkBuddy\20260416002547\finance-api\src\main\java\com\finance\api\service\impl\MoneyFlowServiceImpl.java使用或覆盖了已过时的 API。
+[INFO] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/MoneyFlowServiceImpl.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/RedisConfig.java:[39,36] org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer 中的 setObjectMapper(com.fasterxml.jackson.databind.ObjectMapper) 已过时, 且标记为待删除
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[29,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[33,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[37,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[41,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[45,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[49,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[53,16] 无法推断com.finance.api.common.Result<>的类型参数
+  原因: 无法推断类型变量 T
+    (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[32,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[33,28] 找不到符号
+  符号:   方法 getBizCode()
+  位置: 类型为com.finance.api.common.exception.BusinessException的变量 e
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[46,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[59,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[71,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[82,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[93,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[103,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[113,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[52,17] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[62,17] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[73,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/util/JwtUtil.java:[95,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.util.JwtUtil
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/util/JwtUtil.java:[98,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.util.JwtUtil
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[128,18] 找不到符号
+  符号:   方法 setTradeDate(java.time.LocalDate)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[143,18] 找不到符号
+  符号:   方法 setTradeDate(java.time.LocalDate)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[154,14] 找不到符号
+  符号:   方法 setTsCode(java.lang.String)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[156,18] 找不到符号
+  符号:   方法 setTradeDate(java.time.LocalDate)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[159,18] 找不到符号
+  符号:   方法 setStartDate(java.time.LocalDate)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[162,18] 找不到符号
+  符号:   方法 setEndDate(java.time.LocalDate)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[164,14] 找不到符号
+  符号:   方法 setDays(int)
+  位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[36,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[43,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[54,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[60,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[74,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[78,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[96,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[34,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[39,29] 方法引用无效
+  找不到符号
+    符号:   方法 getIsEnabled()
+    位置: 类 com.finance.api.entity.PriceAlert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[40,29] 方法引用无效
+  找不到符号
+    符号:   方法 getIsTriggered()
+    位置: 类 com.finance.api.entity.PriceAlert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[47,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[53,17] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[53,51] 找不到符号
+  符号:   方法 getStockCode()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[59,53] 找不到符号
+  符号:   方法 getStockCode()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[65,39] 找不到符号
+  符号:   方法 getTargetPrice()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[68,22] 找不到符号
+  符号:   方法 getAlertType()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[75,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[76,26] 找不到符号
+  符号:   方法 getStockName()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[77,26] 找不到符号
+  符号:   方法 getAlertType()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[80,18] 找不到符号
+  符号:   方法 setIsTriggered(int)
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[81,18] 找不到符号
+  符号:   方法 setTriggeredAt(java.time.LocalDateTime)
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[86,36] 找不到符号
+  符号:   方法 getUserId()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[87,39] 找不到符号
+  符号:   方法 getStockCode()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[88,39] 找不到符号
+  符号:   方法 getStockName()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[89,41] 找不到符号
+  符号:   方法 getTargetPrice()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[90,39] 找不到符号
+  符号:   方法 getAlertType()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[92,41] 找不到符号
+  符号:   方法 getTriggeredAt()
+  位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[41,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[83,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[92,21] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[141,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[167,11] 找不到符号
+  符号:   方法 setTsCode(java.lang.String)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[168,11] 找不到符号
+  符号:   方法 setClose(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[169,11] 找不到符号
+  符号:   方法 setPctChange(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[170,11] 找不到符号
+  符号:   方法 setChange(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[171,11] 找不到符号
+  符号:   方法 setOpen(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[172,11] 找不到符号
+  符号:   方法 setHigh(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[173,11] 找不到符号
+  符号:   方法 setLow(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[174,11] 找不到符号
+  符号:   方法 setVolume(java.lang.Long)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[175,11] 找不到符号
+  符号:   方法 setAmount(java.math.BigDecimal)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[176,11] 找不到符号
+  符号:   方法 setQuoteTime(java.time.LocalDateTime)
+  位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[207,13] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[42,51] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[42,29] 方法引用无效
+  找不到符号
+    符号:   方法 getUsername()
+    位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[43,29] 方法引用无效
+  找不到符号
+    符号:   方法 getStatus()
+    位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[51,41] 找不到符号
+  符号:   方法 getPassword()
+  位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[51,61] 找不到符号
+  符号:   方法 getPassword()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[56,50] 找不到符号
+  符号:   方法 getId()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[56,64] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[57,64] 找不到符号
+  符号:   方法 getId()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[57,78] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[61,38] 找不到符号
+  符号:   方法 getId()
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[67,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.AuthServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[67,35] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[71,11] 找不到符号
+  符号:   方法 setToken(java.lang.String)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[72,11] 找不到符号
+  符号:   方法 setExpiresIn(long)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[73,11] 找不到符号
+  符号:   方法 setUser(com.finance.api.vo.UserVO)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[82,51] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[82,29] 方法引用无效
+  找不到符号
+    符号:   方法 getUsername()
+    位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[90,29] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[91,52] 找不到符号
+  符号:   方法 getPassword()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,13] 找不到符号
+  符号:   方法 setNickname(dto.getNic[...]ame())
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,29] 找不到符号
+  符号:   方法 getNickname()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,57] 找不到符号
+  符号:   方法 getNickname()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,77] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[93,26] 找不到符号
+  符号:   方法 getEmail()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[94,13] 找不到符号
+  符号:   方法 setStatus(int)
+  位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[97,9] 找不到符号
+  符号:   变量 log
+  位置: 类 com.finance.api.service.impl.AuthServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[97,34] 找不到符号
+  符号:   方法 getUsername()
+  位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[130,11] 找不到符号
+  符号:   方法 setToken(java.lang.String)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[131,11] 找不到符号
+  符号:   方法 setExpiresIn(long)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[132,11] 找不到符号
+  符号:   方法 setUser(com.finance.api.vo.UserVO)
+  位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.476 s
+[INFO] Finished at: 2026-04-16T02:49:38+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finance-api: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[29,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[33,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[37,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[41,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[45,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[49,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/Result.java:[53,16] 无法推断com.finance.api.common.Result<>的类型参数
+[ERROR]   原因: 无法推断类型变量 T
+[ERROR]     (实际参数列表和形式参数列表长度不同)
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[32,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[33,28] 找不到符号
+[ERROR]   符号:   方法 getBizCode()
+[ERROR]   位置: 类型为com.finance.api.common.exception.BusinessException的变量 e
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[46,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[59,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[71,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[82,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[93,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[103,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/common/exception/GlobalExceptionHandler.java:[113,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.common.exception.GlobalExceptionHandler
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[52,17] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[62,17] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/config/JwtInterceptor.java:[73,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.config.JwtInterceptor
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/util/JwtUtil.java:[95,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.util.JwtUtil
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/util/JwtUtil.java:[98,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.util.JwtUtil
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[128,18] 找不到符号
+[ERROR]   符号:   方法 setTradeDate(java.time.LocalDate)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[143,18] 找不到符号
+[ERROR]   符号:   方法 setTradeDate(java.time.LocalDate)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[154,14] 找不到符号
+[ERROR]   符号:   方法 setTsCode(java.lang.String)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[156,18] 找不到符号
+[ERROR]   符号:   方法 setTradeDate(java.time.LocalDate)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[159,18] 找不到符号
+[ERROR]   符号:   方法 setStartDate(java.time.LocalDate)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[162,18] 找不到符号
+[ERROR]   符号:   方法 setEndDate(java.time.LocalDate)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/controller/MoneyFlowController.java:[164,14] 找不到符号
+[ERROR]   符号:   方法 setDays(int)
+[ERROR]   位置: 类型为com.finance.api.dto.MoneyFlowQueryDTO的变量 query
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[36,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[43,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[54,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[60,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[74,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[78,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceAlertConsumer.java:[96,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceAlertConsumer
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[34,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[39,29] 方法引用无效
+[ERROR]   找不到符号
+[ERROR]     符号:   方法 getIsEnabled()
+[ERROR]     位置: 类 com.finance.api.entity.PriceAlert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[40,29] 方法引用无效
+[ERROR]   找不到符号
+[ERROR]     符号:   方法 getIsTriggered()
+[ERROR]     位置: 类 com.finance.api.entity.PriceAlert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[47,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[53,17] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[53,51] 找不到符号
+[ERROR]   符号:   方法 getStockCode()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[59,53] 找不到符号
+[ERROR]   符号:   方法 getStockCode()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[65,39] 找不到符号
+[ERROR]   符号:   方法 getTargetPrice()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[68,22] 找不到符号
+[ERROR]   符号:   方法 getAlertType()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[75,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.PriceMonitorTask
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[76,26] 找不到符号
+[ERROR]   符号:   方法 getStockName()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[77,26] 找不到符号
+[ERROR]   符号:   方法 getAlertType()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[80,18] 找不到符号
+[ERROR]   符号:   方法 setIsTriggered(int)
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[81,18] 找不到符号
+[ERROR]   符号:   方法 setTriggeredAt(java.time.LocalDateTime)
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[86,36] 找不到符号
+[ERROR]   符号:   方法 getUserId()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[87,39] 找不到符号
+[ERROR]   符号:   方法 getStockCode()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[88,39] 找不到符号
+[ERROR]   符号:   方法 getStockName()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[89,41] 找不到符号
+[ERROR]   符号:   方法 getTargetPrice()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[90,39] 找不到符号
+[ERROR]   符号:   方法 getAlertType()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/PriceMonitorTask.java:[92,41] 找不到符号
+[ERROR]   符号:   方法 getTriggeredAt()
+[ERROR]   位置: 类型为com.finance.api.entity.PriceAlert的变量 alert
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[41,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[83,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[92,21] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[141,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[167,11] 找不到符号
+[ERROR]   符号:   方法 setTsCode(java.lang.String)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[168,11] 找不到符号
+[ERROR]   符号:   方法 setClose(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[169,11] 找不到符号
+[ERROR]   符号:   方法 setPctChange(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[170,11] 找不到符号
+[ERROR]   符号:   方法 setChange(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[171,11] 找不到符号
+[ERROR]   符号:   方法 setOpen(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[172,11] 找不到符号
+[ERROR]   符号:   方法 setHigh(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[173,11] 找不到符号
+[ERROR]   符号:   方法 setLow(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[174,11] 找不到符号
+[ERROR]   符号:   方法 setVolume(java.lang.Long)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[175,11] 找不到符号
+[ERROR]   符号:   方法 setAmount(java.math.BigDecimal)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[176,11] 找不到符号
+[ERROR]   符号:   方法 setQuoteTime(java.time.LocalDateTime)
+[ERROR]   位置: 类型为com.finance.api.vo.StockQuoteVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/StockQuoteServiceImpl.java:[207,13] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.StockQuoteServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[42,51] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[42,29] 方法引用无效
+[ERROR]   找不到符号
+[ERROR]     符号:   方法 getUsername()
+[ERROR]     位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[43,29] 方法引用无效
+[ERROR]   找不到符号
+[ERROR]     符号:   方法 getStatus()
+[ERROR]     位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[51,41] 找不到符号
+[ERROR]   符号:   方法 getPassword()
+[ERROR]   位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[51,61] 找不到符号
+[ERROR]   符号:   方法 getPassword()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[56,50] 找不到符号
+[ERROR]   符号:   方法 getId()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[56,64] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[57,64] 找不到符号
+[ERROR]   符号:   方法 getId()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[57,78] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[61,38] 找不到符号
+[ERROR]   符号:   方法 getId()
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[67,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.AuthServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[67,35] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.LoginDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[71,11] 找不到符号
+[ERROR]   符号:   方法 setToken(java.lang.String)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[72,11] 找不到符号
+[ERROR]   符号:   方法 setExpiresIn(long)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[73,11] 找不到符号
+[ERROR]   符号:   方法 setUser(com.finance.api.vo.UserVO)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[82,51] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[82,29] 方法引用无效
+[ERROR]   找不到符号
+[ERROR]     符号:   方法 getUsername()
+[ERROR]     位置: 类 com.finance.api.entity.User
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[90,29] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[91,52] 找不到符号
+[ERROR]   符号:   方法 getPassword()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,13] 找不到符号
+[ERROR]   符号:   方法 setNickname(dto.getNic[...]ame())
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,29] 找不到符号
+[ERROR]   符号:   方法 getNickname()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,57] 找不到符号
+[ERROR]   符号:   方法 getNickname()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[92,77] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[93,26] 找不到符号
+[ERROR]   符号:   方法 getEmail()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[94,13] 找不到符号
+[ERROR]   符号:   方法 setStatus(int)
+[ERROR]   位置: 类型为com.finance.api.entity.User的变量 user
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[97,9] 找不到符号
+[ERROR]   符号:   变量 log
+[ERROR]   位置: 类 com.finance.api.service.impl.AuthServiceImpl
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[97,34] 找不到符号
+[ERROR]   符号:   方法 getUsername()
+[ERROR]   位置: 类型为com.finance.api.dto.RegisterDTO的变量 dto
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[130,11] 找不到符号
+[ERROR]   符号:   方法 setToken(java.lang.String)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[131,11] 找不到符号
+[ERROR]   符号:   方法 setExpiresIn(long)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] /C:/Users/13129/WorkBuddy/20260416002547/finance-api/src/main/java/com/finance/api/service/impl/AuthServiceImpl.java:[132,11] 找不到符号
+[ERROR]   符号:   方法 setUser(com.finance.api.vo.UserVO)
+[ERROR]   位置: 类型为com.finance.api.vo.LoginVO的变量 vo
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

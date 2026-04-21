@@ -1,0 +1,98 @@
+# Docker Compose 配置入口
+#
+# 注意：完整配置在 docker/ 目录下
+# 根目录：开发环境直接使用（指向 docker/ 目录）
+# docker/ 目录：生产环境部署参考
+
+services:
+  finance-api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=finance_api
+      - DB_USER=root
+      - DB_PWD=${DB_PWD:-root123}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PWD=${REDIS_PWD:-123456}
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PWD=guest
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - SERVER_PORT=8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - finance-net
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: finance-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PWD:-root123}
+      - MYSQL_DATABASE=finance_api
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./src/main/resources/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - finance-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: finance-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass ${REDIS_PWD:-123456}
+    volumes:
+      - redis-data:/data
+    networks:
+      - finance-net
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: finance-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - finance-net
+
+volumes:
+  mysql-data:
+  redis-data:
+  rabbitmq-data:
+
+networks:
+  finance-net:
+    driver: bridge

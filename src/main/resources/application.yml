@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: finance-api
+  profiles:
+    active: dev
+
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:finance_api}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${DB_USER:root}
+    password: ${DB_PWD:root123}
+
+  # Redis
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PWD:123456}
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 1000ms
+
+  # RabbitMQ
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PWD:guest}
+    virtual-host: /
+
+  # Jackson
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+# MyBatis Plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.finance.api.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    # SQL 日志由 logback-spring.xml 统一管理（dev=DEBUG，prod=WARN）
+    # log-impl 在 application-dev.yml 中覆盖，此处不设置全局值
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# JWT 配置
+jwt:
+  secret: ${JWT_SECRET:finance-api-secret-key-change-in-production-min-256bits}
+  ttl-hours: 24
+  refresh-ttl-hours: 168
+
+# Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  webjars:
+    enabled: true
+
+
+
+
+# 服务端口
+server:
+  port: ${SERVER_PORT:8080}
+
+# 日志
+logging:
+  level:
+    com.finance.api: ${LOG_LEVEL:info}

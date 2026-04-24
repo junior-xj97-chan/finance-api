@@ -10,7 +10,7 @@
 
 本项目是一个面向金融场景的后端 API 服务，支持：
 - **用户认证**：JWT 无状态认证，支持 Token 刷新
-- **股票行情**：实时行情、历史K线、股票搜索（接入 NeoData）
+- **股票行情**：实时行情、历史K线、股票搜索（接入 Tushare Pro）
 - **自选股管理**：CRUD、标签管理、备注
 - **价格提醒**：条件触发、RabbitMQ 异步通知
 - **资金流向**：个股、北向资金、大盘、行业板块
@@ -66,10 +66,10 @@
              │
              ▼
 ┌─────────────────────────┐    ┌─────────────────────────┐
-│       NeoData API        │    │       MySQL 8.0          │
+│       Tushare Pro API     │    │       MySQL 8.0          │
 │  - 实时行情 (rt_k)       │    │  - sys_user            │
 │  - 历史日线 (daily)      │    │  - stock_watchlist     │
-│  - 资金流向 (moneyflow)  │    │  - price_alert         │
+│  - 股票搜索 (stock_basic)│    │  - price_alert         │
 └─────────────────────────┘    └─────────────────────────┘
 ```
 
@@ -91,7 +91,7 @@ finance-api/
 │   │   └── MoneyFlowController.java   # 资金流向
 │   ├── service/              # 业务逻辑层
 │   │   ├── impl/
-│   │   │   ├── StockQuoteServiceImpl.java  # NeoData API 接入
+│   │   │   ├── StockQuoteServiceImpl.java  # Tushare Pro API 接入
 │   │   │   ├── MoneyFlowServiceImpl.java   # 资金流向服务
 │   │   │   └── ...
 │   │   ├── PriceMonitorTask.java     # 价格监控定时任务
@@ -312,10 +312,29 @@ mybatis-plus:
 
 ## ⚙️ 配置说明
 
+### Tushare Pro 配置
+
+本项目接入 [Tushare Pro](https://tushare.pro/) 金融数据 API，需配置 Token：
+
+```yaml
+# application-dev.yml
+tushare:
+  token: YOUR_TUSHARE_TOKEN
+```
+
+**获取 Token：**
+1. 访问 [tushare.pro/register](https://tushare.pro/register) 注册账号
+2. 登录后在「用户中心 → 接口TOKEN」复制 Token
+3. 粘贴到 `application-dev.yml`
+
+> ⚠️ `application-dev.yml` 已加入 `.gitignore`，不会提交到 Git。
+> 本地开发需手动创建并配置 Token，可参考 `application-dev.example.yml` 模板。
+
 ### 环境变量
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
+| TUSHARE_TOKEN | - | Tushare Pro Token（必填，注册获取） |
 | DB_HOST | localhost | MySQL 地址 |
 | DB_PORT | 3306 | MySQL 端口 |
 | DB_USER | root | 数据库用户 |
@@ -368,7 +387,7 @@ mvn clean package -DskipTests
 - [Spring Security 6 官方文档](https://spring.io/projects/spring-security)
 - [MyBatis-Plus 官方文档](https://baomidou.com/pages/24112f/)
 - [JJWT 使用指南](https://github.com/jwtk/jjwt)
-- [NeoData 金融数据 API](https://www.neodot.cn/)
+- [Tushare Pro 金融数据 API](https://tushare.pro/)
 
 ## 📄 License
 

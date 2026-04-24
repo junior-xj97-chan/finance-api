@@ -36,14 +36,14 @@ public class RedisConfig {
         StringRedisSerializer stringSerializer = new StringRedisSerializer();
 
         // 使用 Jackson 序列化 value
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
                 ObjectMapper.DefaultTyping.NON_FINAL,
                 JsonTypeInfo.As.PROPERTY);
         mapper.registerModule(new JavaTimeModule());
-        jackson2JsonRedisSerializer.setObjectMapper(mapper);
+
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(mapper, Object.class);
 
         template.setKeySerializer(stringSerializer);
         template.setValueSerializer(jackson2JsonRedisSerializer);

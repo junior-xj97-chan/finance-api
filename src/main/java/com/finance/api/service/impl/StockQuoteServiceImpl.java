@@ -8,6 +8,7 @@ import com.finance.api.service.StockQuoteService;
 import com.finance.api.vo.StockQuoteVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ import java.util.*;
 
 /**
  * 股票行情服务实现
- * 接入 NeoData 金融数据 API + Redis 缓存
+ * 接入 Tushare Pro 金融数据 API + Redis 缓存
  */
 @Slf4j
 @Service
@@ -33,8 +34,11 @@ public class StockQuoteServiceImpl implements StockQuoteService {
     private final StringRedisTemplate stringRedisTemplate;
     private final ObjectMapper objectMapper;
 
-    /** NeoData API 基础地址 */
-    private static final String API_BASE = "https://www.codebuddy.cn/v2/tool/financedata";
+    @Value("${tushare.token:}")
+    private String tushareToken;
+
+    /** Tushare Pro API 地址 */
+    private static final String API_BASE = "http://api.tushare.pro";
 
     // ==================== 缓存配置 ====================
     private static final String QUOTE_CACHE_PREFIX = "quote:rt:";    // 实时行情缓存
@@ -357,20 +361,34 @@ public class StockQuoteServiceImpl implements StockQuoteService {
 
         StockQuoteVO vo = new StockQuoteVO();
         vo.setTsCode(stockCode);
+        vo.setQuoteTime(LocalDateTime.now()); // rt_k 没有 trade_date，用当前时间
 
         for (int i = 0; i < fieldList.size() && i < item.size(); i++) {
             String field = fieldList.get(i);
             String val = safeGet(item, i);
             switch (field) {
-                case "open"    -> vo.setOpen(toDecimal(val));
-                case "high"   -> vo.setHigh(toDecimal(val));
-                case "low"    -> vo.setLow(toDecimal(val));
-                case "close"  -> vo.setClose(toDecimal(val));
-                case "pct_chg" -> vo.setPctChange(toDecimal(val));
-                case "vol"    -> vo.setVolume(toLong(val));
-                case "amount" -> vo.setAmount(toDecimal(val));
-                case "trade_date" -> vo.setQuoteTime(parseTradeDate(val));
+                case "name"      -> vo.setName(val);
+                case "pre_close" -> vo.setPreClose(toDecimal(val));
+                case "open"      -> vo.setOpen(toDecimal(val));
+                case "high"      -> vo.setHigh(toDecimal(val));
+                case "low"       -> vo.setLow(toDecimal(val));
+                case "close"     -> vo.setClose(toDecimal(val));
+                case "vol"       -> vo.setVolume(toLong(val));
+                case "amount"    -> vo.setAmount(toDecimal(val));
+                case "pct_chg"   -> vo.setPctChange(toDecimal(val));
+                case "trade_date"-> vo.setQuoteTime(parseTradeDate(val));
                 default -> {}
+            }
+        }
+        // 如果有 close 和 pre_close，计算涨跌幅
+        if (vo.getPctChange() == null || vo.getPctChange().compareTo(BigDecimal.ZERO) == 0) {
+            if (vo.getClose() != null && vo.getPreClose() != null
+                    && vo.getPreClose().compareTo(BigDecimal.ZERO) != 0) {
+                BigDecimal chg = vo.getClose().subtract(vo.getPreClose())
+                        .divide(vo.getPreClose(), 4, RoundingMode.HALF_UP)
+                        .multiply(BigDecimal.valueOf(100))
+                        .setScale(2, RoundingMode.HALF_UP);
+                vo.setPctChange(chg);
             }
         }
         return vo;
@@ -407,33 +425,38 @@ public class StockQuoteServiceImpl implements StockQuoteService {
     // ==================== HTTP 请求 ====================
 
     /**
-     * 通用 POST 请求
+     * 通用 POST 请求（Tushare Pro 接口）
+     * 认证方式：token 放在请求体中，格式：{"api_name":"xxx","token":"xxx","params":{...},"fields":""}
      */
     private String postApi(String apiName, Map<String, String> params) {
         try {
+            // 构建请求体：token 放在请求体里（Tushare Pro 标准格式）
             StringBuilder jsonBuilder = new StringBuilder();
-            jsonBuilder.append("{\"api_name\":\"").append(apiName).append("\",\"params\":{");
+            jsonBuilder.append("{\"api_name\":\"").append(apiName).append("\"");
+            jsonBuilder.append(",\"token\":\"").append(tushareToken).append("\"");
+            jsonBuilder.append(",\"params\":{");
             int i = 0;
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 if (i > 0) jsonBuilder.append(",");
                 jsonBuilder.append("\"").append(entry.getKey()).append("\":\"").append(entry.getValue()).append("\"");
                 i++;
             }
-            jsonBuilder.append("}}");
+            jsonBuilder.append("},\"fields\":\"\"}");
 
             URL url = new URL(API_BASE);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
-            conn.setConnectTimeout(5000);
-            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(8000);
+            conn.setReadTimeout(15000);
 
-            conn.getOutputStream().write(jsonBuilder.toString().getBytes(StandardCharsets.UTF_8));
+            byte[] bodyBytes = jsonBuilder.toString().getBytes(StandardCharsets.UTF_8);
+            conn.getOutputStream().write(bodyBytes);
 
             int respCode = conn.getResponseCode();
             if (respCode != 200) {
-                log.warn("HTTP请求失败 [{}]: {}", apiName, respCode);
+                log.warn("Tushare HTTP请求失败 [{}]: status={}", apiName, respCode);
                 return null;
             }
 
@@ -444,10 +467,12 @@ public class StockQuoteServiceImpl implements StockQuoteService {
                 while ((line = reader.readLine()) != null) {
                     response.append(line);
                 }
-                return response.toString();
+                String result = response.toString();
+                log.debug("Tushare响应 [{}]: {}", apiName, result.length() > 200 ? result.substring(0, 200) + "..." : result);
+                return result;
             }
         } catch (Exception e) {
-            log.error("API调用异常 [{}]: {}", apiName, e.getMessage());
+            log.error("Tushare API调用异常 [{}]: {}", apiName, e.getMessage());
             return null;
         }
     }

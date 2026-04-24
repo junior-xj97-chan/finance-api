@@ -1,3 +1,16 @@
+# ============================================================
+# 开发环境配置模板
+# 使用说明：
+# 1. 复制此文件为 application-dev.yml
+# 2. 填入实际的配置值
+# ============================================================
+
+tushare:
+  # Tushare Pro Token（必填）
+  # 获取地址：https://tushare.pro/register
+  # 免费注册后默认有 100 积分，可访问 stock_basic 等基础接口
+  token: YOUR_TUSHARE_TOKEN_HERE
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -46,3 +46,17 @@ Thumbs.db
 
 # Docker
 docker/logs/
+
+# ====================
+# Secret Config Files
+# ====================
+# 生产/开发环境配置（包含 Token、密码等敏感信息）
+application-prod.yml
+application-dev.yml
+application-test.yml
+
+# 通用：所有带 prod/dev/test 后缀的配置文件
+# （如需保留 example 模板，请改为注释或删除此行）
+**/application-dev.yml
+**/application-prod.yml
+**/application-test.yml

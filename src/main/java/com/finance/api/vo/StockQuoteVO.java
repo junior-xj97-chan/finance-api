@@ -29,6 +29,9 @@ public class StockQuoteVO implements Serializable {
     /** 最新价 */
     private BigDecimal close;
 
+    /** 昨收价 */
+    private BigDecimal preClose;
+
     /** 涨跌幅（%） */
     private BigDecimal pctChange;
 

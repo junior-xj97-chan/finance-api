@@ -19,13 +19,12 @@ import java.util.stream.Collectors;
 
 /**
  * 价格监控定时任务
- * 每分钟扫描所有启用中的价格提醒，判断是否触发
- * 
- * 优化：
- * 1. 批量查询行情，减少 API 调用次数
- * 2. 复用缓存，同一分钟内不会重复调用
- * 3. 捕获单只股票异常，不影响其他股票
- * 4. 美股/港股暂不支持，跳过处理
+ * 每5分钟扫描所有启用中的价格提醒，判断是否触发
+ *
+ * 支持市场：
+ * - A股（.SH/.SZ）：rt_k 实时行情 + daily 日线降级
+ * - 港股（.HK）：hk_daily 日线
+ * - 美股（.US）：us_daily 日线
  */
 @Slf4j
 @Service
@@ -36,8 +35,8 @@ public class PriceMonitorTask {
     private final RabbitTemplate rabbitTemplate;
     private final StockQuoteServiceImpl stockQuoteService;
 
-    /** 每分钟执行一次 */
-    @Scheduled(fixedRate = 60_000)
+    /** 每5分钟执行一次 */
+    @Scheduled(fixedRate = 300_000)
     public void monitorPriceAlerts() {
         log.debug("开始执行价格监控...");
 
@@ -61,13 +60,6 @@ public class PriceMonitorTask {
         for (Map.Entry<String, List<PriceAlert>> entry : byMarket.entrySet()) {
             String market = entry.getKey();
             List<PriceAlert> marketAlerts = entry.getValue();
-
-            // 美股/港股暂不支持
-            if ("US".equals(market) || "HK".equals(market)) {
-                log.warn("暂不支持监控 {} 市场: {}", market, 
-                        marketAlerts.stream().map(PriceAlert::getStockName).toList());
-                continue;
-            }
 
             // 批量获取该市场的行情（利用缓存，减少 API 调用）
             List<String> codes = marketAlerts.stream()

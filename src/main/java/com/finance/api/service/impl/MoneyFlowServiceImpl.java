@@ -13,6 +13,7 @@ import com.finance.api.vo.SectorFlowVO;
 import com.finance.api.vo.StockMoneyFlowVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 资金流向服务实现
- * 整合 NeoData 金融数据 API + Redis 缓存
+ * 整合 Tushare Pro 金融数据 API + Redis 缓存
  */
 @Slf4j
 @Service
@@ -39,7 +40,11 @@ public class MoneyFlowServiceImpl implements MoneyFlowService {
     private final StringRedisTemplate stringRedisTemplate;
     private final ObjectMapper objectMapper;
 
-    private static final String API_BASE = "https://www.codebuddy.cn/v2/tool/financedata";
+    @Value("${tushare.token:}")
+    private String tushareToken;
+
+    /** Tushare Pro API 地址 */
+    private static final String API_BASE = "http://api.tushare.pro";
 
     // ==================== 缓存配置 ====================
     private static final String STOCK_FLOW_CACHE = "mflow:stock:";
@@ -618,31 +623,37 @@ public class MoneyFlowServiceImpl implements MoneyFlowService {
 
     // ==================== 工具方法 ====================
 
+    /**
+     * 通用 POST 请求（Tushare Pro 接口）
+     * 认证方式：token 放在请求体中
+     */
     private String postApi(String apiName, Map<String, String> params) {
         try {
             StringBuilder jsonBuilder = new StringBuilder();
-            jsonBuilder.append("{\"api_name\":\"").append(apiName).append("\",\"params\":{");
+            jsonBuilder.append("{\"api_name\":\"").append(apiName).append("\"");
+            jsonBuilder.append(",\"token\":\"").append(tushareToken).append("\"");
+            jsonBuilder.append(",\"params\":{");
             boolean first = true;
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 if (!first) jsonBuilder.append(",");
                 jsonBuilder.append("\"").append(entry.getKey()).append("\":\"").append(entry.getValue()).append("\"");
                 first = false;
             }
-            jsonBuilder.append("}}");
+            jsonBuilder.append("},\"fields\":\"\"}");
 
             URL url = new URL(API_BASE);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
-            conn.setConnectTimeout(5000);
-            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(8000);
+            conn.setReadTimeout(15000);
 
             conn.getOutputStream().write(jsonBuilder.toString().getBytes(StandardCharsets.UTF_8));
 
             int respCode = conn.getResponseCode();
             if (respCode != 200) {
-                log.warn("HTTP请求失败: {}", respCode);
+                log.warn("Tushare HTTP请求失败 [{}]: status={}", apiName, respCode);
                 return null;
             }
 
@@ -656,7 +667,7 @@ public class MoneyFlowServiceImpl implements MoneyFlowService {
                 return response.toString();
             }
         } catch (Exception e) {
-            log.error("API调用异常 [{}]: {}", apiName, e.getMessage());
+            log.error("Tushare API调用异常 [{}]: {}", apiName, e.getMessage());
             return null;
         }
     }

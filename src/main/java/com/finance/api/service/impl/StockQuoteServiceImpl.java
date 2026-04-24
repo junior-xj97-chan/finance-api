@@ -40,6 +40,16 @@ public class StockQuoteServiceImpl implements StockQuoteService {
     /** Tushare Pro API 地址 */
     private static final String API_BASE = "http://api.tushare.pro";
 
+    // ==================== 市场与 API 映射 ====================
+    /** A股日线 */
+    private static final String API_DAILY    = "daily";
+    /** 港股日线 */
+    private static final String API_HK_DAILY  = "hk_daily";
+    /** 美股日线 */
+    private static final String API_US_DAILY  = "us_daily";
+    /** 实时行情 */
+    private static final String API_RT_K      = "rt_k";
+
     // ==================== 缓存配置 ====================
     private static final String QUOTE_CACHE_PREFIX = "quote:rt:";    // 实时行情缓存
     private static final String HISTORY_CACHE_PREFIX = "quote:his:"; // 历史K线缓存
@@ -56,21 +66,24 @@ public class StockQuoteServiceImpl implements StockQuoteService {
         String cacheKey = QUOTE_CACHE_PREFIX + stockCode;
         String cached = stringRedisTemplate.opsForValue().get(cacheKey);
         if (cached != null) {
-            log.debug("实时行情缓存命中: {}", stockCode);
+            log.debug("行情缓存命中: {}", stockCode);
             return parseQuoteFromCache(cached);
         }
 
-        // 2. 缓存未命中，从 NeoData 获取（优先实时日线，降级历史日线）
+        // 2. 缓存未命中，从 Tushare 获取
         StockQuoteVO quote = null;
-        
-        // 2.1 先尝试实时行情（如果未被限流，缓存 30s）
-        try {
-            quote = fetchRealtimeQuote(stockCode);
-        } catch (Exception e) {
-            log.debug("实时行情获取失败 [{}]: {}", stockCode, e.getMessage());
+        String market = detectMarket(stockCode);
+
+        // 2.1 A股优先实时行情（rt_k），港股/美股直接走日线（rt_k 对 US/HK 积分不够会被限流）
+        if (!"HK".equals(market) && !"US".equals(market)) {
+            try {
+                quote = fetchRealtimeQuote(stockCode);
+            } catch (Exception e) {
+                log.debug("实时行情获取失败 [{}]: {}", stockCode, e.getMessage());
+            }
         }
-        
-        // 2.2 降级方案：通过日线接口获取最近一条数据
+
+        // 2.2 降级方案：通过日线接口获取最近一条数据（HK/US/CN 均走此路径）
         if (quote == null) {
             try {
                 quote = fetchLatestDaily(stockCode);
@@ -78,11 +91,10 @@ public class StockQuoteServiceImpl implements StockQuoteService {
                 log.debug("日线数据获取失败 [{}]: {}", stockCode, e.getMessage());
             }
         }
-        
-        // 2.3 最终兜底：缓存一个占位数据，避免频繁请求
+
+        // 2.3 最终兜底：返回 null 让调用方处理
         if (quote == null) {
             log.warn("获取 {} 行情失败，返回空数据", stockCode);
-            // 不抛异常，返回 null 让调用方处理
             return null;
         }
 
@@ -120,22 +132,25 @@ public class StockQuoteServiceImpl implements StockQuoteService {
             }
         }
 
-        // 批量获取未命中数据（防止 rt_k 接口被限流）
+        // 批量获取未命中数据
         if (!missCodes.isEmpty()) {
             log.debug("批量未命中 {} 只股票，开始获取", missCodes.size());
-            
+
             for (String code : missCodes) {
                 try {
                     StockQuoteVO quote = null;
-                    
-                    // 优先尝试实时行情（带缓存保护）
-                    try {
-                        quote = fetchRealtimeQuote(code);
-                    } catch (Exception e) {
-                        log.debug("实时行情获取失败 [{}]: {}", code, e.getMessage());
+                    String market = detectMarket(code);
+
+                    // A股优先实时行情，港股/美股直接走日线
+                    if (!"HK".equals(market) && !"US".equals(market)) {
+                        try {
+                            quote = fetchRealtimeQuote(code);
+                        } catch (Exception e) {
+                            log.debug("实时行情获取失败 [{}]: {}", code, e.getMessage());
+                        }
                     }
-                    
-                    // 降级：使用日线数据
+
+                    // 降级：使用日线数据（HK/US/CN 均走此路径）
                     if (quote == null) {
                         try {
                             quote = fetchLatestDaily(code);
@@ -143,7 +158,7 @@ public class StockQuoteServiceImpl implements StockQuoteService {
                             log.debug("日线数据获取失败 [{}]: {}", code, e.getMessage());
                         }
                     }
-                    
+
                     if (quote != null) {
                         writeQuoteToCache(QUOTE_CACHE_PREFIX + code, quote);
                         result.add(quote);
@@ -257,21 +272,25 @@ public class StockQuoteServiceImpl implements StockQuoteService {
     }
 
     /**
-     * 调用历史日线接口（daily）
+     * 调用历史日线接口（daily / hk_daily / us_daily）
+     * 根据 ts_code 后缀自动选择对应市场的 API
      */
     private List<StockQuoteVO> callDailyApi(String stockCode, String startDate, String endDate) {
         try {
+            String market = detectMarket(stockCode);
+            String apiName = getDailyApiName(market);
+
             Map<String, String> params = new LinkedHashMap<>();
             params.put("ts_code", stockCode);
             params.put("start_date", startDate);
             params.put("end_date", endDate);
 
-            String json = postApi("daily", params);
+            String json = postApi(apiName, params);
             if (json == null) return Collections.emptyList();
 
             JsonNode root = objectMapper.readTree(json);
             if (root.get("code").asInt() != 0) {
-                log.warn("daily 接口调用失败 [{}]: {}", stockCode, root.get("msg").asText());
+                log.warn("日线接口 [{}] 调用失败 [{}]: {}", apiName, stockCode, root.get("msg").asText());
                 return Collections.emptyList();
             }
 
@@ -548,5 +567,28 @@ public class StockQuoteServiceImpl implements StockQuoteService {
         } catch (Exception e) {
             return LocalDateTime.now();
         }
+    }
+
+    // ==================== 市场判断 ====================
+
+    /**
+     * 判断股票代码所属市场
+     */
+    private String detectMarket(String stockCode) {
+        if (stockCode == null) return "CN";
+        if (stockCode.endsWith(".HK")) return "HK";
+        if (stockCode.endsWith(".US")) return "US";
+        return "CN"; // .SH .SZ 等默认A股
+    }
+
+    /**
+     * 根据市场选择对应的日线 API 名称
+     */
+    private String getDailyApiName(String market) {
+        return switch (market) {
+            case "HK" -> API_HK_DAILY;
+            case "US" -> API_US_DAILY;
+            default   -> API_DAILY;
+        };
     }
 }
